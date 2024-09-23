@@ -1,0 +1,221 @@
+<!DOCTYPE HTML>
+<!--
+    Events Page for Sigma Alpha Mu | Delta Omega RIT
+-->
+<html>
+    <head>
+        <title>Sigma Alpha Mu | Events</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="icon" type="image/x-icon" href="/images/stock/crest.png">
+        <link rel="stylesheet" href="assets/css/main.css" />
+        <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+        <!-- Countdown Timer Styles -->
+        <style>
+            #countdown {
+                font-family: 'Arial', sans-serif;
+                color: #fff;
+                display: flex;
+                justify-content: center;
+                text-align: center;
+                font-size: 3em; /* Increased font size */
+                padding: 20px;
+                margin-bottom: 50px;
+            }
+            #countdown div {
+                margin: 0 20px;
+            }
+            #countdown div span {
+                display: block;
+                font-size: 0.5em;
+                color: #fff;
+            }
+            /* Added colors for each time unit */
+            #days {
+                color: #FF6F61;
+            }
+            #hours {
+                color: #6B5B95;
+            }
+            #minutes {
+                color: #88B04B;
+            }
+            #seconds {
+                color: #F7CAC9;
+            }
+            /* Optional: Add background gradient */
+            #countdown {
+                background: linear-gradient(135deg, #0B486B, #F56217);
+                border-radius: 10px;
+                padding: 40px;
+            }
+            /* Responsive font size */
+            @media screen and (max-width: 600px) {
+                #countdown {
+                    flex-direction: column;
+                    font-size: 2em;
+                }
+                #countdown div {
+                    margin: 10px 0;
+                }
+            }
+        </style>
+    </head>
+    <body class="landing is-preload">
+
+        <!-- Page Wrapper -->
+            <div id="page-wrapper">
+
+                <!-- Header -->
+                    <header id="header" class="alt">
+                        <h1><a href="index.html">ΣΑΜ</a></h1>
+                        <nav id="nav">
+                            <ul>
+                                <li class="special">
+                                    <a href="#menu" class="menuToggle"><span>Menu</span></a>
+                                    <div id="menu">
+                                        <ul>
+                                            <li><a href="index.html">Home</a></li>
+                                            <li><a href="rush.html">Recruitment</a></li>
+                                            <li><a href="brotherhood.html">Brotherhood</a></li>
+                                            <li><a href="philanthropy.html">Philanthropy</a></li>
+                                            <li><a href="leadership.html">Leadership</a></li>
+                                            <li><a href="events.html">Events</a></li>
+                                            <li><a href="http://instagram.com/sammy_rit" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </nav>
+                    </header>
+
+                <!-- Main -->
+                    <section id="main" class="wrapper style1">
+                        <div class="inner">
+                            <header class="major">
+                                <h2>Upcoming Events</h2>
+                                <p>Join us in our upcoming events and be a part of our brotherhood.</p>
+                            </header>
+
+                            <!-- Countdown Timer -->
+                            <div id="countdown">
+                                <div>
+                                    <div id="days">00</div>
+                                    <span>Days</span>
+                                </div>
+                                <div>
+                                    <div id="hours">00</div>
+                                    <span>Hours</span>
+                                </div>
+                                <div>
+                                    <div id="minutes">00</div>
+                                    <span>Minutes</span>
+                                </div>
+                                <div>
+                                    <div id="seconds">00</div>
+                                    <span>Seconds</span>
+                                </div>
+                            </div>
+
+                            <!-- Event List -->
+                            <section>
+                                <h3>All Events</h3>
+                                <ul class="features" id="events-list">
+                                    <li data-event-date="09/28/2024 10:00:00">
+                                        <h4>Walk to End Alzheimer's</h4>
+                                        <p>Date: 09/28/2024</p>
+                                        <p>Time: 10:00 AM</p>
+                                        <p>Location: Local Park</p>
+                                        <p>Description: Join us in supporting the fight against Alzheimer's disease.</p>
+                                    </li>
+
+                                </ul>
+                            </section>
+                        </div>
+                    </section>
+
+                <!-- Footer -->
+                    <footer id="footer">
+                        <ul class="icons">
+                            <li>Find us on <a href="http://instagram.com/sammy_rit" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                        </ul>
+                        <ul class="copyright">
+                            <li>&copy; Sigma Alpha Mu | Delta Omega</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                        </ul>
+                    </footer>
+
+            </div>
+
+        <!-- Scripts -->
+            <script src="assets/js/jquery.min.js"></script>
+            <script src="assets/js/jquery.scrollex.min.js"></script>
+            <script src="assets/js/jquery.scrolly.min.js"></script>
+            <script src="assets/js/browser.min.js"></script>
+            <script src="assets/js/breakpoints.min.js"></script>
+            <script src="assets/js/util.js"></script>
+            <script src="assets/js/main.js"></script>
+            <!-- Countdown Timer Script -->
+            <script>
+                // Function to parse event dates and find the next event
+                function getNextEventDate() {
+                    var eventElements = document.querySelectorAll('#events-list li');
+                    var events = [];
+
+                    eventElements.forEach(function(el) {
+                        var eventDateStr = el.getAttribute('data-event-date');
+                        var eventDate = new Date(eventDateStr);
+                        if (!isNaN(eventDate)) {
+                            events.push({
+                                date: eventDate,
+                                element: el
+                            });
+                        }
+                    });
+
+                    // Filter out past events and sort the events by date
+                    var now = new Date();
+                    var upcomingEvents = events.filter(function(event) {
+                        return event.date >= now;
+                    }).sort(function(a, b) {
+                        return a.date - b.date;
+                    });
+
+                    // Return the date of the next event
+                    if (upcomingEvents.length > 0) {
+                        return upcomingEvents[0].date;
+                    } else {
+                        return null;
+                    }
+                }
+
+                // Set up the countdown timer
+                var eventDate = getNextEventDate();
+
+                if (eventDate) {
+                    var x = setInterval(function() {
+                        var now = new Date().getTime();
+                        var distance = eventDate.getTime() - now;
+
+                        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                        document.getElementById("days").innerHTML = days;
+                        document.getElementById("hours").innerHTML = hours;
+                        document.getElementById("minutes").innerHTML = minutes;
+                        document.getElementById("seconds").innerHTML = seconds;
+
+                        if (distance < 0) {
+                            clearInterval(x);
+                            document.getElementById("countdown").innerHTML = "<h2>The event has started!</h2>";
+                        }
+                    }, 1000);
+                } else {
+                    // If no upcoming events, display a message
+                    document.getElementById("countdown").innerHTML = "<h2>No upcoming events.</h2>";
+                }
+            </script>
+
+    </body>
+</html>
