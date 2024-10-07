@@ -8,7 +8,17 @@
         <link rel="stylesheet" href="assets/css/main.css" />
         <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
         <!-- Countdown Timer Styles -->
+        <!-- Countdown Timer Styles -->
         <style>
+            #event-name {
+                font-family: 'Arial', sans-serif;
+                font-size: 1.5em; /* Adjust font size as needed */
+                font-weight: bold;
+                color: #ffffff;
+                text-align: center;
+                margin-bottom: 20px; /* Move it up slightly */
+            }
+
             #countdown {
                 font-family: 'Arial', sans-serif;
                 color: #fff;
@@ -18,45 +28,41 @@
                 font-size: 3em; /* Increased font size */
                 padding: 20px;
                 margin-bottom: 50px;
-            }
-            #countdown div {
-                margin: 0 20px;
-            }
-            #countdown div span {
-                display: block;
-                font-size: 0.5em;
-                color: #fff;
-            }
-            /* Added colors for each time unit */
-            #days {
-                color: #ffffff;
-            }
-            #hours {
-                color: #ffffff;
-            }
-            #minutes {
-                color: #ffffff;
-            }
-            #seconds {
-                color: #ffffff;
-            }
-            /* Add background gradient */
-            #countdown {
                 background: linear-gradient(135deg, #ffffff, #b217f5);
                 border-radius: 10px;
                 padding: 40px;
             }
-            /* Responsive font size */
+
+            #countdown div {
+                margin: 0 20px;
+            }
+
+            #countdown div span {
+                display: block;
+                font-size: 0.5em;
+                color: #fff;
+                padding-top: 10px; /* Move the labels down slightly */
+            }
+
+            /* Add specific colors for each time unit (optional) */
+            #days, #hours, #minutes, #seconds {
+                color: #ffffff;
+            }
+
+            /* Responsive styling for mobile view */
             @media screen and (max-width: 600px) {
                 #countdown {
-                    flex-direction: column;
-                    font-size: 2em;
+                    font-size: 2em;  /* Adjust font size for mobile */
+                    flex-direction: row; /* Ensure it stays horizontal */
                 }
+
                 #countdown div {
-                    margin: 10px 0;
+                    margin: 0 10px; /* Adjust margin for mobile view */
                 }
             }
+
         </style>
+
     </head>
         
         
@@ -115,6 +121,7 @@
                         <div class="inner">
 
                             <!-- Countdown Timer -->
+                            <div id="event-name"></div>
                             <div id="countdown">
                                 <div>
                                     <div id="days">00</div>
@@ -186,64 +193,71 @@
             <!-- Countdown Timer Script -->
             <script>
                 // Function to parse event dates and find the next event
-                function getNextEventDate() {
-                    var eventElements = document.querySelectorAll('#events-list li');
-                    var events = [];
 
-                    eventElements.forEach(function(el) {
-                        var eventDateStr = el.getAttribute('data-event-date');
-                        var eventDate = new Date(eventDateStr);
-                        if (!isNaN(eventDate)) {
-                            events.push({
-                                date: eventDate,
-                                element: el
-                            });
-                        }
-                    });
+            // Function to parse event dates and find the next event
+            function getNextEvent() {
+                var eventElements = document.querySelectorAll('#events-list li');
+                var events = [];
 
-                    // Filter out past events and sort the events by date
-                    var now = new Date();
-                    var upcomingEvents = events.filter(function(event) {
-                        return event.date >= now;
-                    }).sort(function(a, b) {
-                        return a.date - b.date;
-                    });
-
-                    // Return the date of the next event
-                    if (upcomingEvents.length > 0) {
-                        return upcomingEvents[0].date;
-                    } else {
-                        return null;
+                eventElements.forEach(function(el) {
+                    var eventDateStr = el.getAttribute('data-event-date');
+                    var eventDate = new Date(eventDateStr);
+                    if (!isNaN(eventDate)) {
+                        events.push({
+                            date: eventDate,
+                            element: el
+                        });
                     }
-                }
+                });
 
-                // Set up the countdown timer
-                var eventDate = getNextEventDate();
+                // Filter out past events and sort the events by date
+                var now = new Date();
+                var upcomingEvents = events.filter(function(event) {
+                    return event.date >= now;
+                }).sort(function(a, b) {
+                    return a.date - b.date;
+                });
 
-                if (eventDate) {
-                    var x = setInterval(function() {
-                        var now = new Date().getTime();
-                        var distance = eventDate.getTime() - now;
-
-                        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                        document.getElementById("days").innerHTML = days;
-                        document.getElementById("hours").innerHTML = hours;
-                        document.getElementById("minutes").innerHTML = minutes;
-                        document.getElementById("seconds").innerHTML = seconds;
-
-                        if (distance < 0) {
-                            clearInterval(x);
-                            document.getElementById("countdown").innerHTML = "<h2>The event has started!</h2>";
-                        }
-                    }, 1000);
+                // Return the next event's details
+                if (upcomingEvents.length > 0) {
+                    return upcomingEvents[0];
                 } else {
-                    // If no upcoming events, display a message
-                    document.getElementById("countdown").innerHTML = "<h2>No upcoming events.</h2>";
+                    return null;
                 }
+            }
+
+            // Set up the countdown timer
+            var nextEvent = getNextEvent();
+
+            if (nextEvent) {
+                var eventDate = nextEvent.date;
+                var eventName = nextEvent.element.querySelector('h4').innerText; // Get event name
+                document.getElementById('event-name').innerText = eventName; // Display event name above countdown
+
+                var x = setInterval(function() {
+                    var now = new Date().getTime();
+                    var distance = eventDate.getTime() - now;
+
+                    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                    document.getElementById("days").innerHTML = days;
+                    document.getElementById("hours").innerHTML = hours;
+                    document.getElementById("minutes").innerHTML = minutes;
+                    document.getElementById("seconds").innerHTML = seconds;
+
+                    if (distance < 0) {
+                        clearInterval(x);
+                        document.getElementById("countdown").innerHTML = "<h2>The event has started!</h2>";
+                    }
+                }, 1000);
+            } else {
+                // If no upcoming events, display a message
+                document.getElementById("countdown").innerHTML = "<h2>No upcoming events.</h2>";
+            }
+
             </script>
 
     </body>
