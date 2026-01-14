@@ -14,6 +14,7 @@
                 font-size: 1.5em;
                 font-weight: bold;
                 color: #ffffff;
+                background-color: #c0b299;
                 text-align: center;
                 margin-bottom: 20px;
             }
@@ -27,7 +28,7 @@
                 font-size: 3em;
                 padding: 20px;
                 margin-bottom: 50px;
-                background: linear-gradient(135deg, #ffcffb, #b300ff);
+                background: linear-gradient(135deg, #8e9dba, #bbb29b);
                 border-radius: 10px;
                 padding: 40px;
                 text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Adds an outline effect */
@@ -75,7 +76,7 @@
 
             .glow {
                 background: linear-gradient(135deg, #ffe6f2, #ff99cc);
-                box-shadow: 0 0 10px 3px rgba(255, 105, 180, 0.5),
+                box-shadow: 0 0 10px 3px rgba(27, 59, 123, 0.5),
                             0 0 20px 6px rgba(255, 182, 193, 0.3),
                             0 0 30px 9px rgba(255, 192, 203, 0.2);
                 border: 1px solid rgba(255, 255, 255, 0.7);
@@ -85,12 +86,12 @@
 
                 @keyframes subtleGlow {
                     0%, 100% {
-                        box-shadow: 0 0 10px 3px rgba(255, 105, 180, 0.5),
+                        box-shadow: 0 0 10px 3px rgba(27, 59, 123, 0.5),
                                     0 0 20px 6px rgba(255, 182, 193, 0.3),
                                     0 0 30px 9px rgba(255, 192, 203, 0.2);
                     }
                     50% {
-                        box-shadow: 0 0 15px 5px rgba(255, 105, 180, 0.6),
+                        box-shadow: 0 0 15px 5px rgba(27, 59, 123, 0.6),
                                     0 0 25px 8px rgba(255, 182, 193, 0.4),
                                     0 0 35px 12px rgba(255, 192, 203, 0.3);
                     }
@@ -121,13 +122,43 @@
 
     </head>
         
-        
+
+
+
         <!-- Page Wrapper -->
             <div id="page-wrapper">
+<style>
+/* Header background (normal state) */
+#header {
+  background-color: #c0b299;    /* <- REPLACE this hex with the color you want */
+  color: #ffffff;
+  position: fixed;
+  z-index: 1000;
+  transition: background-color 20ms ease;
+}
 
+#menu {
+  background-color: #8b8374;         /* fallback color while image loads or if missing */
+  color: #ffffff;
+}
+#main.wrapper.style1 {
+  background-image: url("Holiday/GreatWave.jpg"); /* <-- put your image path here */
+  background-repeat: no-repeat;
+  background-size: contain;            /* cover fills the element, preserving aspect ratio */
+  background-position: center center;
+  background-color: #0b3d91;         /* fallback color while image loads or if missing */
+  color: #ffffff;       /* text color for contrast */
+  background-attachment: fixed;
+}
+
+#events-list > li {
+  background: #c0b299 !important;
+  margin: 0 !important;
+} 
+
+</style>
 
                 <!-- Header -->
-                				<!-- Header -->
 					<header id="header">
 						<h1><a href="index.html">ΣΑΜ | RUSH EVENTS</a></h1>
 						<nav id="nav">
@@ -150,27 +181,7 @@
 						</nav>
 					</header>
 
-                    <header id="header" class="alt">
-                        <h1><a href="index.html">ΣΑΜ | RUSH EVENTS</a></h1>
-                        <nav id="nav">
-                            <ul>
-                                <li class="special">
-                                    <a href="#menu" class="menuToggle"><span>Menu</span></a>
-                                    <div id="menu">
-                                        <ul>
-                                            <li><a href="index.html">Home</a></li>
-                                            <li><a href="rush.html">Recruitment</a></li>
-                                            <li><a href="brotherhood.html">Brotherhood</a></li>
-                                            <li><a href="philanthropy.html">Philanthropy</a></li>
-                                            <li><a href="leadership.html">Leadership</a></li>
-                                            <li><a href="http://instagram.com/sammy_rit" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-                                        </ul>
-                                    </div>
-                                </li>
-                            </ul>
-                        </nav>
-                    </header>
-
+                    
                 <!-- Main -->
                     <section id="main" class="wrapper style1">
                         <div class="inner">
@@ -198,7 +209,6 @@
 
                             <!-- Event List -->
                             <section>
-                                <h3>All Events</h3>
                                 <ul class="features" id="events-list">
                                     <li data-event-date="01/12/2026 17:00:00">
                                         <h4>IFC Spring Kickoff</h4>
@@ -222,7 +232,7 @@
                                         <p>Description: Come play dodgeball with the brothers of Sigma Alpha Mu.</p>
                                     </li>
                                     <li data-event-date="01/22/2026 10:00:00">
-                                        <h4>Hot Cocoa and Dunkin</h4>
+                                        <h4>Free Hot Cocoa and Dunkin</h4>
                                         <p>Date: 01/22/2026</p>
                                         <p>Time: 10:00 AM - 4:00 PM</p>
                                         <p>Location: SAU Lobby</p>
@@ -235,13 +245,12 @@
                                         <p>Location: Red Barn Climbing Gym</p>
                                         <p>Description: Enjoy free rock climbing at the Red Barn with the brothers of Sigma Alpha Mu!</p>
                                     </li>            
-                                       
                                     <li data-event-date="01/25/2026 18:30:00">
                                         <h4>Football and Nug Night</h4>
                                         <p>Date: 01/25/2026</p>
                                         <p>Time: 6:30 PM - 9:00 PM</p>
                                         <p>Location: CYB Room 1720</p>
-                                        <p>Description: Come watch football and enjoy nuggets with the brothers of Sigma Alpha Mu.</p>
+                                        <p>Description: Come watch football and enjoy free nuggets with the brothers of Sigma Alpha Mu.</p>
                                     </li>
                                     <li data-event-date="01/27/2026 16:30:00">
                                         <h4>Info Session</h4>
@@ -294,6 +303,7 @@
             <script src="assets/js/breakpoints.min.js"></script>
             <script src="assets/js/util.js"></script>
             <script src="assets/js/main.js"></script>
+
             <!-- Countdown Timer Script -->
             <script>
                 // Function to parse event dates and find the next event
