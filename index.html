@@ -23,60 +23,6 @@
                 margin-bottom: 20px;
             }
         
-            #countdown {
-                font-family: 'Arial', sans-serif;
-                color: #fff;
-                display: flex;
-                justify-content: center;
-                text-align: center;
-                font-size: 3em;
-                padding: 20px;
-                margin-bottom: 50px;
-                background: linear-gradient(90deg, #e0e0e0e6, #00c8ff);
-                border-radius: 10px;
-                padding: 40px;
-                text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Adds an outline effect */
-            }
-        
-            #countdown div {
-                margin: 0 20px;
-            }
-        
-            #countdown div span {
-                display: block;
-                font-size: 0.5em;
-                color: #fff;
-                padding-top: 10px;
-                text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Adds an outline effect */
-            }
-        
-            #days, #hours, #minutes, #seconds {
-                color: #ffffff;
-                text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Adds an outline effect */
-            }
-            #events-list {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 30px; 
-                justify-content: center; 
-            }
-
-            #events-list li {
-                background: rgba(255, 255, 255, 0.1);
-                border: 1px solid rgba(255, 255, 255, 0.3);
-                border-radius: 10px;
-                padding: 20px;
-                flex: 1 1 calc(30% - 30px); 
-                max-width: 300px; 
-                min-width: 250px; 
-                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
-                transition: transform 0.3s ease, box-shadow 0.3s ease;
-            }
-
-            #events-list li:hover {
-                transform: translateY(-10px);
-                box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.4);
-            }
 
             .glow {
                 background: linear-gradient(135deg, #ffe6f2, #ff99cc);
@@ -99,29 +45,7 @@
                                     0 0 25px 8px rgba(255, 182, 193, 0.4),
                                     0 0 35px 12px rgba(255, 192, 203, 0.3);
                     }
-}
-
-            @media screen and (max-width: 600px) {
-                #countdown {
-                    font-size: 2em;
-                    flex-direction: row;
                 }
-        
-                #countdown div {
-                    margin: 0 10px;
-                }
-            }
-            @media screen and (max-width: 768px) {
-            #events-list li {
-                flex: 1 1 calc(45% - 20px); 
-            }
-        }
-
-        @media screen and (max-width: 480px) {
-            #events-list li {
-                flex: 1 1 calc(100% - 10px); 
-            }
-        }
         </style>
 	</head>
 	<body class="landing is-preload">
@@ -139,13 +63,13 @@
 									<div id="menu">
 										<ul>
 											<li><a href="index.html">Home</a></li>
-                      <li><a href="rush.html">Recruitment</a></li>
-					  
-                      <li><a href="brotherhood.html">Brotherhood</a></li>
-                      <li><a href="philanthropy.html">Philanthropy</a></li>
-                      <li><a href="leadership.html">Leadership</a></li>
-					  <!-- Banner <li><a href="events.html">Leadership</a></li> -->
-                      <li><a href="http://instagram.com/sammy_rit" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                                            <li><a href="rush.html">Recruitment</a></li>
+					                         
+                                            <li><a href="brotherhood.html">Brotherhood</a></li>
+                                            <li><a href="philanthropy.html">Philanthropy</a></li>
+                                            <li><a href="leadership.html">Leadership</a></li>
+					                         <!-- Banner <li><a href="events.html">Leadership</a></li> -->
+                                            <li><a href="http://instagram.com/sammy_rit" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
 										</ul>
 									</div>
 								</li>
@@ -175,47 +99,7 @@
 				 <section id="main" class="wrapper style1">
                         <div class="inner">
 
-                            <!-- Countdown Timer -->
-                            <div id="event-name"></div>
-                            <div id="countdown">
-                                <div>
-                                    <div id="days">00</div>
-                                    <span>Days</span>
-                                </div>
-                                <div>
-                                    <div id="hours">00</div>
-                                    <span>Hours</span>
-                                </div>
-                                <div>
-                                    <div id="minutes">00</div>
-                                    <span>Minutes</span>
-                                </div>
-                                <div>
-                                    <div id="seconds">00</div>
-                                    <span>Seconds</span>
-                                </div>
-                            </div>
-
                             <!-- Event List -->
-                            <section>
-                                <ul class="features" id="events-list">
-									<li data-event-date="12/15/2025 00:00:00">
-                                    	<h4>Days Til Hanukkah</h4>
-										<p>Date: 12/15/2025 - 12/22/2025</p>
-										<div class="image"><img src="Holiday/hanukkah.jpg" alt="" style="width: 100%; height: 400px; object-fit: cover;"/></div>
-                                    </li>
-                                    <li data-event-date="12/25/2025 00:00:00">
-                                    	<h4>Days Til Christmas</h4>
-										<p>Date: 12/25/2025</p>
-                                    	<div class="image"><img src="Holiday/christmas.jpg" alt="" style="width: 100%; height: 400px; object-fit: cover;"/></div>
-                                    </li>
-									<li data-event-date="1/1/2026 00:00:00">
-                                    	<h4>Days Til New Years</h4>
-										<p>Date: 1/1/2026</p>
-                                    	<div class="image"><img src="Holiday/newyears.jpg" alt="" style="width: 100%; height: 400px; object-fit: cover;"/></div>
-                                    </li>
-									</ul>
-                            </section>
                         </div>
 				 </section>
 					<section id="one" class="wrapper style1 special">
@@ -288,75 +172,6 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 
-			<!-- Countdown Timer Script -->
-            <script>
-                // Function to parse event dates and find the next event
-
-            // Function to parse event dates and find the next event
-            function getNextEvent() {
-                var eventElements = document.querySelectorAll('#events-list li');
-                var events = [];
-
-                eventElements.forEach(function(el) {
-                    var eventDateStr = el.getAttribute('data-event-date');
-                    var eventDate = new Date(eventDateStr);
-                    if (!isNaN(eventDate)) {
-                        events.push({
-                            date: eventDate,
-                            element: el
-                        });
-                    }
-                });
-
-                // Filter out past events and sort the events by date
-                var now = new Date();
-                var upcomingEvents = events.filter(function(event) {
-                    return event.date >= now;
-                }).sort(function(a, b) {
-                    return a.date - b.date;
-                });
-
-                // Return the next event's details
-                if (upcomingEvents.length > 0) {
-                    return upcomingEvents[0];
-                } else {
-                    return null;
-                }
-            }
-
-            // Set up the countdown timer
-            var nextEvent = getNextEvent();
-
-            if (nextEvent) {
-                var eventDate = nextEvent.date;
-                var eventName = nextEvent.element.querySelector('h4').innerText; // Get event name
-                document.getElementById('event-name').innerText = eventName; // Display event name above countdown
-                nextEvent.element.classList.add('glow');
-
-                var x = setInterval(function() {
-                    var now = new Date().getTime();
-                    var distance = eventDate.getTime() - now;
-
-                    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                    document.getElementById("days").innerHTML = days;
-                    document.getElementById("hours").innerHTML = hours;
-                    document.getElementById("minutes").innerHTML = minutes;
-                    document.getElementById("seconds").innerHTML = seconds;
-
-                    if (distance < 0) {
-                        clearInterval(x);
-                        document.getElementById("countdown").innerHTML = "<h2>Christmas is Here!</h2>";
-                    }
-                }, 1000);
-            } else {
-                // If no upcoming events, display a message
-                document.getElementById("countdown").innerHTML = "<h2>Looking Forward to the New Year!</h2>";
-            }
-		</script>
 
 	</body>
 </html>
