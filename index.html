@@ -13,6 +13,119 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 
+		<!-- Countdown Timer Styles -->
+        <style>
+            #event-name {
+                font-family: 'Arial', sans-serif;
+                font-size: 1.5em;
+                font-weight: bold;
+                color: #ffffff;
+                background-color: #7c24a5;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+        
+            #countdown {
+                font-family: 'Arial', sans-serif;
+                color: #fff;
+                display: flex;
+                justify-content: center;
+                text-align: center;
+                font-size: 3em;
+                padding: 20px;
+                margin-bottom: 50px;
+                background: linear-gradient(135deg, #b880d2, #810fa1);
+                border-radius: 10px;
+                padding: 40px;
+                text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Adds an outline effect */
+            }
+        
+            #countdown div {
+                margin: 0 20px;
+            }
+        
+            #countdown div span {
+                display: block;
+                font-size: 0.5em;
+                color: #fff;
+                padding-top: 10px;
+                text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Adds an outline effect */
+            }
+        
+            #days, #hours, #minutes, #seconds {
+                color: #ffffff;
+                text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Adds an outline effect */
+            }
+            #events-list {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 30px; 
+                justify-content: center; 
+            }
+
+            #events-list li {
+                background: rgba(255, 255, 255, 0.1);
+                border: 1px solid rgba(255, 255, 255, 0.3);
+                border-radius: 10px;
+                padding: 20px;
+                flex: 1 1 calc(30% - 30px); 
+                max-width: 300px; 
+                min-width: 250px; 
+                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+
+            #events-list li:hover {
+                transform: translateY(-10px);
+                box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.4);
+            }
+
+            .glow {
+                background: linear-gradient(135deg, #ffe6f2, #ff99cc);
+                box-shadow: 0 0 10px 3px rgba(27, 59, 123, 0.5),
+                            0 0 20px 6px rgba(255, 182, 193, 0.3),
+                            0 0 30px 9px rgba(255, 192, 203, 0.2);
+                border: 1px solid rgba(255, 255, 255, 0.7);
+                animation: subtleGlow 4s infinite;
+                color: #ffffff;
+                }
+
+                @keyframes subtleGlow {
+                    0%, 100% {
+                        box-shadow: 0 0 10px 3px rgba(27, 59, 123, 0.5),
+                                    0 0 20px 6px rgba(255, 182, 193, 0.3),
+                                    0 0 30px 9px rgba(255, 192, 203, 0.2);
+                    }
+                    50% {
+                        box-shadow: 0 0 15px 5px rgba(27, 59, 123, 0.6),
+                                    0 0 25px 8px rgba(255, 182, 193, 0.4),
+                                    0 0 35px 12px rgba(255, 192, 203, 0.3);
+                    }
+}
+
+            @media screen and (max-width: 600px) {
+                #countdown {
+                    font-size: 2em;
+                    flex-direction: row;
+                }
+        
+                #countdown div {
+                    margin: 0 10px;
+                }
+            }
+            @media screen and (max-width: 768px) {
+            #events-list li {
+                flex: 1 1 calc(45% - 20px); 
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            #events-list li {
+                flex: 1 1 calc(100% - 10px); 
+            }
+        }
+        </style>
+
         <style>
 
             .glow {
@@ -40,6 +153,7 @@
         </style>
 	</head>
 	<body class="landing is-preload">
+
 
 		<!-- Page Wrapper -->
 			<div id="page-wrapper">
@@ -72,7 +186,7 @@
 						<div class="inner">
 							<h2>ΣΑΜ at RIT</h2>
 							<p>True Manhood. Democracy. Humanity.<br/>
-              Leaders at RIT since 1996.</p>
+              					Leaders at RIT since 1996.</p>
 							<ul class="actions special">
 								<li><a href="rush.html" class="button primary">Rush Now</a></li>
 							</ul>
@@ -86,14 +200,47 @@
 					</section>
 
 				<!-- One -->
-					<section id="one" class="wrapper style3 special">
+					<section id="one" class="wrapper style1 special">
 						<div class="inner">
-							<h2>Congratulations to our 2026 E-Board!</h2>
-							<h1>Learn More about our leadership below.</h1>
-							<a href="leadership.html" class="button primary">Leadership</a>
-			<span class="image fit">
-                <img src="images/brothers/E-Board26.jpeg" alt="" style="width: 100%; height: 900px; object-fit: cover;">
-              </span>
+							<!-- Main -->
+
+                            <!-- Countdown Timer -->
+                            <div id="event-name"></div>
+                            <div id="countdown">
+                                <div>
+                                    <div id="days">00</div>
+                                    <span>Days</span>
+                                </div>
+                                <div>
+                                    <div id="hours">00</div>
+                                    <span>Hours</span>
+                                </div>
+                                <div>
+                                    <div id="minutes">00</div>
+                                    <span>Minutes</span>
+                                </div>
+                                <div>
+                                    <div id="seconds">00</div>
+                                    <span>Seconds</span>
+                                </div>
+                            </div>
+							<section>
+                                <ul class="features" id="events-list">
+									<li>
+										<h4>What is ExtraLife?</h4>
+										<p>Extralife is our 24 hour charity livestream, stream will be filled with fun games, segments, and donation goals.</p>
+                                    </li>
+								<li data-event-date="02/20/2026 18:00:00">
+									<h4>Extralife</h4>
+									<p>Stream duration: 2/20 6pm-2/21 6pm</p>
+									<p>Tune into the stream by clicking below <a href="https://www.twitch.tv/sammy_rit" class="button fit primary">Twitch</a></p>
+									</li>
+									<li>
+										<h4>What does Extralife support?</h4>
+										<p>All proceeds made will go towards the Golisano Children's Hospital through the Children's Miracle Network!</p>
+                                    </li>
+								</ul>
+			
               <span class="image fit">
                 <img src="images/TempBanner3.0.jpeg">
               </span>
@@ -161,6 +308,76 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+
+			<!-- Countdown Timer Script -->
+            <script>
+                // Function to parse event dates and find the next event
+
+            // Function to parse event dates and find the next event
+            function getNextEvent() {
+                var eventElements = document.querySelectorAll('#events-list li');
+                var events = [];
+
+                eventElements.forEach(function(el) {
+                    var eventDateStr = el.getAttribute('data-event-date');
+                    var eventDate = new Date(eventDateStr);
+                    if (!isNaN(eventDate)) {
+                        events.push({
+                            date: eventDate,
+                            element: el
+                        });
+                    }
+                });
+
+                // Filter out past events and sort the events by date
+                var now = new Date();
+                var upcomingEvents = events.filter(function(event) {
+                    return event.date >= now;
+                }).sort(function(a, b) {
+                    return a.date - b.date;
+                });
+
+                // Return the next event's details
+                if (upcomingEvents.length > 0) {
+                    return upcomingEvents[0];
+                } else {
+                    return null;
+                }
+            }
+
+            // Set up the countdown timer
+            var nextEvent = getNextEvent();
+
+            if (nextEvent) {
+                var eventDate = nextEvent.date;
+                var eventName = nextEvent.element.querySelector('h4').innerText; // Get event name
+                document.getElementById('event-name').innerText = eventName; // Display event name above countdown
+                nextEvent.element.classList.add('glow');
+
+                var x = setInterval(function() {
+                    var now = new Date().getTime();
+                    var distance = eventDate.getTime() - now;
+
+                    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                    document.getElementById("days").innerHTML = days;
+                    document.getElementById("hours").innerHTML = hours;
+                    document.getElementById("minutes").innerHTML = minutes;
+                    document.getElementById("seconds").innerHTML = seconds;
+
+                    if (distance < 0) {
+                        clearInterval(x);
+                        document.getElementById("countdown").innerHTML = "<h2>The event has started!</h2>";
+                    }
+                }, 1000);
+            } else {
+                // If no upcoming events, display a message
+                document.getElementById("countdown").innerHTML = "<h2>No upcoming events. Check back next semester!</h2>";
+            }
+			</script>
 
 
 	</body>
