@@ -1,0 +1,379 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Sigma Alpha Mu | Rush Events</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="icon" type="image/x-icon" href="/images/stock/crest.png">
+        <link rel="stylesheet" href="assets/css/main.css" />
+        <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+        <!-- Countdown Timer Styles -->
+        <style>
+            #event-name {
+                font-family: 'Arial', sans-serif;
+                font-size: 1.5em;
+                font-weight: bold;
+                color: #ffffff;
+                background-color: #c0b299;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+        
+            #countdown {
+                font-family: 'Arial', sans-serif;
+                color: #fff;
+                display: flex;
+                justify-content: center;
+                text-align: center;
+                font-size: 3em;
+                padding: 20px;
+                margin-bottom: 50px;
+                background: linear-gradient(135deg, #8e9dba, #bbb29b);
+                border-radius: 10px;
+                padding: 40px;
+                text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Adds an outline effect */
+            }
+        
+            #countdown div {
+                margin: 0 20px;
+            }
+        
+            #countdown div span {
+                display: block;
+                font-size: 0.5em;
+                color: #fff;
+                padding-top: 10px;
+                text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Adds an outline effect */
+            }
+        
+            #days, #hours, #minutes, #seconds {
+                color: #ffffff;
+                text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Adds an outline effect */
+            }
+            #events-list {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 30px; 
+                justify-content: center; 
+            }
+
+            #events-list li {
+                background: rgba(255, 255, 255, 0.1);
+                border: 1px solid rgba(255, 255, 255, 0.3);
+                border-radius: 10px;
+                padding: 20px;
+                flex: 1 1 calc(30% - 30px); 
+                max-width: 300px; 
+                min-width: 250px; 
+                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+
+            #events-list li:hover {
+                transform: translateY(-10px);
+                box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.4);
+            }
+
+            .glow {
+                background: linear-gradient(135deg, #ffe6f2, #ff99cc);
+                box-shadow: 0 0 10px 3px rgba(27, 59, 123, 0.5),
+                            0 0 20px 6px rgba(255, 182, 193, 0.3),
+                            0 0 30px 9px rgba(255, 192, 203, 0.2);
+                border: 1px solid rgba(255, 255, 255, 0.7);
+                animation: subtleGlow 4s infinite;
+                color: #ffffff;
+                }
+
+                @keyframes subtleGlow {
+                    0%, 100% {
+                        box-shadow: 0 0 10px 3px rgba(27, 59, 123, 0.5),
+                                    0 0 20px 6px rgba(255, 182, 193, 0.3),
+                                    0 0 30px 9px rgba(255, 192, 203, 0.2);
+                    }
+                    50% {
+                        box-shadow: 0 0 15px 5px rgba(27, 59, 123, 0.6),
+                                    0 0 25px 8px rgba(255, 182, 193, 0.4),
+                                    0 0 35px 12px rgba(255, 192, 203, 0.3);
+                    }
+}
+
+            @media screen and (max-width: 600px) {
+                #countdown {
+                    font-size: 2em;
+                    flex-direction: row;
+                }
+        
+                #countdown div {
+                    margin: 0 10px;
+                }
+            }
+            @media screen and (max-width: 768px) {
+            #events-list li {
+                flex: 1 1 calc(45% - 20px); 
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            #events-list li {
+                flex: 1 1 calc(100% - 10px); 
+            }
+        }
+        </style>
+
+    </head>
+        
+
+
+
+        <!-- Page Wrapper -->
+            <div id="page-wrapper">
+<style>
+/* Header background (normal state) */
+#header {
+  background-color: #c0b299;    /* <- REPLACE this hex with the color you want */
+  color: #ffffff;
+  position: fixed;
+  z-index: 1000;
+  transition: background-color 20ms ease;
+}
+
+#menu {
+  background-color: #8b8374;         /* fallback color while image loads or if missing */
+  color: #ffffff;
+}
+#main.wrapper.style1 {
+  background-image: url("images/Rush_Themes/GreatWave.jpg"); /* <-- put your image path here */
+  background-repeat: no-repeat;
+  background-size: cover;            /* cover fills the element, preserving aspect ratio */
+  background-position: center center;
+  background-color: #0b3d91;         /* fallback color while image loads or if missing */
+  color: #ffffff;       /* text color for contrast */
+  background-attachment: fixed;
+}
+
+#events-list > li {
+  background: #c0b299 !important;
+  margin: 0 !important;
+} 
+
+</style>
+
+                <!-- Header -->
+					<header id="header">
+						<h1><a href="index.html">ΣΑΜ | RUSH EVENTS</a></h1>
+						<nav id="nav">
+							<ul>
+								<li class="special">
+									<a href="#menu" class="menuToggle"><span>Menu</span></a>
+									<div id="menu">
+										<ul>
+											<li><a href="index.html">Home</a></li>
+                      <li><a href="rush.html">Recruitment</a></li>
+                     
+                      <li><a href="brotherhood.html">Brotherhood</a></li>
+                      <li><a href="philanthropy.html">Philanthropy</a></li>
+                      <li><a href="leadership.html">Leadership</a></li>
+                      <li><a href="http://instagram.com/sammy_rit" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+                    
+                <!-- Main -->
+                    <section id="main" class="wrapper style1">
+                        <div class="inner">
+
+                            <!-- Countdown Timer -->
+                            <div id="event-name"></div>
+                            <div id="countdown">
+                                <div>
+                                    <div id="days">00</div>
+                                    <span>Days</span>
+                                </div>
+                                <div>
+                                    <div id="hours">00</div>
+                                    <span>Hours</span>
+                                </div>
+                                <div>
+                                    <div id="minutes">00</div>
+                                    <span>Minutes</span>
+                                </div>
+                                <div>
+                                    <div id="seconds">00</div>
+                                    <span>Seconds</span>
+                                </div>
+                            </div>
+
+                            <!-- Event List -->
+                            <section>
+                                <ul class="features" id="events-list">
+                                    <li data-event-date="01/12/2026 17:00:00">
+                                        <h4>IFC Spring Kickoff</h4>
+                                        <p>Date: 01/12/2026</p>
+                                        <p>Time: 5:00 PM - 8:00 PM</p>
+                                        <p>Location: SLC Courts 2-3</p>
+                                        <p>Description: IFC Kickoff Event. Come join the brothers of multiple IFC orgs for games, activities, and free Gatorade!</p>
+                                    </li>
+                                    <li data-event-date="01/16/2026 11:00:00">
+                                        <h4>Greek Day Tabling</h4>
+                                        <p>Date: 01/16/2026</p>
+                                        <p>Time: 11:00 AM - 3:00 PM</p>
+                                        <p>Location: Fireside Lounge</p>
+                                        <p>Description: Come learn about Greek Life and meet brothers from multiple orgs.</p>
+                                    </li>
+                                    <li data-event-date="01/19/2026 17:00:00">
+                                        <h4>Dodgeball</h4>
+                                        <p>Date: 01/19/2026</p>
+                                        <p>Time: 5:00 PM - 7:00 PM</p>
+                                        <p>Location: SLC Mini Gym</p>
+                                        <p>Description: Come play dodgeball with the brothers of Sigma Alpha Mu.</p>
+                                    </li>
+                                    <li data-event-date="01/22/2026 10:00:00">
+                                        <h4>Free Hot Cocoa and Dunkin</h4>
+                                        <p>Date: 01/22/2026</p>
+                                        <p>Time: 10:00 AM - 4:00 PM</p>
+                                        <p>Location: SAU Lobby</p>
+                                        <p>Description: Stop by for some free hot cocoa and meet more of the brothers!</p>
+                                    </li>
+                                    <li data-event-date="01/24/2026 16:00:00">
+                                        <h4>Rock Climbing</h4>
+                                        <p>Date: 01/24/2026</p>
+                                        <p>Time: 4:00 PM - 6:00 PM</p>
+                                        <p>Location: Red Barn Climbing Gym</p>
+                                        <p>Description: Enjoy free rock climbing at the Red Barn with the brothers of Sigma Alpha Mu!</p>
+                                    </li>            
+                                    <li data-event-date="01/25/2026 18:30:00">
+                                        <h4>Football and Nug Night</h4>
+                                        <p>Date: 01/25/2026</p>
+                                        <p>Time: 6:30 PM - 9:00 PM</p>
+                                        <p>Location: CYB Room 1720</p>
+                                        <p>Description: Come watch football and enjoy free nuggets with the brothers of Sigma Alpha Mu.</p>
+                                    </li>
+                                    <li data-event-date="01/27/2026 16:30:00">
+                                        <h4>Info Session</h4>
+                                        <p>Date: 01/27/2026</p>
+                                        <p>Time: 4:30 PM - 6:30 PM</p>
+                                        <p>Location: SAU Room 2510</p>
+                                        <p>Description: Come learn more about the fraternity, our chapter, and what we do on and off campus.</p>
+                                    </li>
+                                    <li data-event-date="01/29/2026 19:00:00">
+                                        <h4>Sammy Feud*</h4>
+                                        <p>Date: 01/29/2026</p>
+                                        <p>Time: 7:00 PM - 9:00 PM</p>
+                                        <p>Location: Meet at Gracie's for rides</p>
+                                        <p>*INVITE ONLY</p>
+                                        <p>Description: Come enjoy Sigma Alpha Mu's spin on Family Feud.</p>
+                                    </li>
+                                    <li data-event-date="01/31/2026 17:00:00">
+                                        <h4>Formal Dinner*</h4>
+                                        <p>Date: 01/31/2026</p>
+                                        <p>Time: 5:00 PM - 7:00 PM</p>
+                                        <p>Location: Meet at Gracie's for rides</p>
+                                        <p>*INVITE ONLY</p>
+                                        <p>Description: Come join the brothers of Sigma Alpha Mu for a night of good food.</p>
+                                    </li>
+                                    
+
+
+                                </ul>
+                            </section>
+                        </div>
+                    </section>
+
+                <!-- Footer -->
+                    <footer id="footer">
+                        <ul class="icons">
+                            <li>Find us on <a href="http://instagram.com/sammy_rit" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                        </ul>
+                        <ul class="copyright">
+                            <li>&copy; Sigma Alpha Mu | Delta Omega</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                        </ul>
+                    </footer>
+
+            </div>
+
+        <!-- Scripts -->
+            <script src="assets/js/jquery.min.js"></script>
+            <script src="assets/js/jquery.scrollex.min.js"></script>
+            <script src="assets/js/jquery.scrolly.min.js"></script>
+            <script src="assets/js/browser.min.js"></script>
+            <script src="assets/js/breakpoints.min.js"></script>
+            <script src="assets/js/util.js"></script>
+            <script src="assets/js/main.js"></script>
+
+            <!-- Countdown Timer Script -->
+            <script>
+                // Function to parse event dates and find the next event
+
+            // Function to parse event dates and find the next event
+            function getNextEvent() {
+                var eventElements = document.querySelectorAll('#events-list li');
+                var events = [];
+
+                eventElements.forEach(function(el) {
+                    var eventDateStr = el.getAttribute('data-event-date');
+                    var eventDate = new Date(eventDateStr);
+                    if (!isNaN(eventDate)) {
+                        events.push({
+                            date: eventDate,
+                            element: el
+                        });
+                    }
+                });
+
+                // Filter out past events and sort the events by date
+                var now = new Date();
+                var upcomingEvents = events.filter(function(event) {
+                    return event.date >= now;
+                }).sort(function(a, b) {
+                    return a.date - b.date;
+                });
+
+                // Return the next event's details
+                if (upcomingEvents.length > 0) {
+                    return upcomingEvents[0];
+                } else {
+                    return null;
+                }
+            }
+
+            // Set up the countdown timer
+            var nextEvent = getNextEvent();
+
+            if (nextEvent) {
+                var eventDate = nextEvent.date;
+                var eventName = nextEvent.element.querySelector('h4').innerText; // Get event name
+                document.getElementById('event-name').innerText = eventName; // Display event name above countdown
+                nextEvent.element.classList.add('glow');
+
+                var x = setInterval(function() {
+                    var now = new Date().getTime();
+                    var distance = eventDate.getTime() - now;
+
+                    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                    document.getElementById("days").innerHTML = days;
+                    document.getElementById("hours").innerHTML = hours;
+                    document.getElementById("minutes").innerHTML = minutes;
+                    document.getElementById("seconds").innerHTML = seconds;
+
+                    if (distance < 0) {
+                        clearInterval(x);
+                        document.getElementById("countdown").innerHTML = "<h2>The event has started!</h2>";
+                    }
+                }, 1000);
+            } else {
+                // If no upcoming events, display a message
+                document.getElementById("countdown").innerHTML = "<h2>No upcoming events. Check back next semester!</h2>";
+            }
+
+            </script>
+
+    </body>
+</html>
